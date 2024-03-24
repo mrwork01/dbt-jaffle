@@ -10,6 +10,12 @@ models:
         tests:
           - unique
           - not_null
+        meta:
+          metrics:
+            number_of_customers:
+              description: The number of unique customers
+              label: Unique Customers
+              type: count_distinct
 
       - name: first_name
         description: Customer's first name. PII.
