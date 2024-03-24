@@ -37,6 +37,10 @@ models:
 
   - name: orders
     description: This table has basic information about orders, as well as some derived facts based on payments
+    meta:
+      joins:
+        - join: customers
+          sql_on: orders.customer_id = customers.customer_id
 
     columns:
       - name: order_id
@@ -66,6 +70,12 @@ models:
         description: Total amount (AUD) of the order
         tests:
           - not_null
+        meta:
+          metrics:
+            total_order_amount:
+              description: The total value of all orders
+              label: Total Order Amount
+              type: sum
 
       - name: credit_card_amount
         description: Amount of the order (AUD) paid for by credit card
