@@ -1,0 +1,12 @@
+jaffle_shop:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      threads: 1
+      host: "{{ env_var('PG_HOST') }}"
+      port: 5432
+      user: "{{ env_var('PG_USER') }}"
+      pass: "{{ env_var('PG_PASSWORD') }}"
+      dbname: "{{ env_var('PG_DB_NAME') }}"
+      schema: jaffle
